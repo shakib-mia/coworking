@@ -1,0 +1,107 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import "tailwindcss";
+
+@theme {
+  --font-gilroy-bold: "Gilroy-Bold", sans-serif;
+  --font-gilroy-heavy: "Gilroy-Heavy", sans-serif;
+  --font-gilroy-light: "Gilroy-Light", sans-serif;
+  --font-gilroy-medium: "Gilroy-Medium", sans-serif;
+  --font-gilroy-regular: "Gilroy-Regular", sans-serif;
+
+  --color-dark: #161c2d;
+  --color-primary: #473bf0;
+  --color-success: #68d585;
+  --color-error: #f74d4d;
+  --color-light: #979797;
+
+    --text-heading-1: 60px;
+  --text-heading-1--line-height: 130%;
+
+  --text-heading-2: 48px;
+  --text-heading-2--line-height: 130%;
+
+  --text-heading-3: 36px;
+  --text-heading-3--line-height: 130%;
+
+  --text-heading-4: 32px;
+  --text-heading-4--line-height: 130%;
+
+  --text-heading-5: 24px;
+  --text-heading-5--line-height: 130%;
+
+  --text-heading-6: 21px;
+  --text-heading-6--line-height: 130%;
+
+  --text-lg: 18px;
+  --text-lg--line-height: 170%;
+
+  --text-base: 16px;
+  --text-base--line-height: 170%;
+
+  --text-sm: 14px;
+  --text-sm--line-height: 170%;
+}
+
+body {
+  @apply font-gilroy-regular text-[#161C2D]/70;
+}
+
+::-webkit-scrollbar {
+  @apply w-0;
+}
+
+#video-modal {
+  @apply fixed top-0 left-0 w-full h-full bg-black/50 hidden items-center justify-center pointer-events-none z-50
+}
+
+#virtual-tour:checked ~ #video-modal {
+  @apply flex pointer-events-auto
+}
+
+/* H1 - Main page titles and hero headlines */
+h1 {
+  @apply text-3xl           /* 30px on mobile */
+         sm:text-4xl        /* 36px on small screens (640px+) */
+         md:text-5xl        /* 48px on medium screens (768px+) */
+         lg:text-heading-1 text-[#161C2D]; /* Custom size on large screens (1024px+) */
+}
+
+/* H2 - Section headings */
+h2 {
+  @apply text-3xl           /* 30px on mobile */
+         sm:text-3xl        /* 30px on small screens */
+         md:text-4xl        /* 36px on medium screens */
+         lg:text-heading-2 text-[#161C2D]; /* Custom size on large screens */
+}
+
+/* H3 - Subsection headings */
+h3 {
+  @apply text-2xl           /* 24px on mobile */
+         md:text-3xl        /* 30px on medium screens */
+         lg:text-heading-3 text-[#161C2D]; /* Custom size on large screens */
+}
+
+/* H4 - Card titles and smaller headings */
+h4 {
+  @apply text-2xl           /* 24px default */
+         lg:text-heading-4 text-[#161C2D]; /* Custom size on large screens */
+}
+
+/* H5 - Minor headings */
+h5 {
+  @apply text-heading-5 text-[#161C2D]; /* Custom size (defined in globals.css) */
+}
+
+/* H6 - Smallest headings, often for metadata */
+h6 {
+  @apply text-heading-6 text-[#161C2D]; /* Custom size (defined in globals.css) */
+}
+
+.container {
+  @apply px-4 mx-auto lg:max-w-6xl;
+}
+
+section,
+footer {
+  @apply py-14 lg:py-20;
+}
