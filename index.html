@@ -4,523 +4,706 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page Title - Change this to your website's title -->
     <title>Co Working</title>
     <link rel="stylesheet" href="./src/style.css" />
     <script src="https://kit.fontawesome.com/b50fc748ca.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
   <body>
-    <header
-      style="background-image: url(./src/assets/hero.png)"
-      class="relative h-screen bg-cover bg-center bg-no-repeat"
-    >
-      <div
-        class="container mx-auto flex h-full flex-col items-center justify-center text-center"
+    <div class="w-screen overflow-hidden">
+      <!-- NAVIGATION BAR -->
+      <!-- Fixed position navbar that stays at top when scrolling -->
+      <nav class="py-3 fixed top-0 left-0 w-full z-50 text-white" id="navbar">
+        <div class="container mx-auto flex items-center justify-between">
+          <!-- LOGO/BRAND NAME -->
+          <!-- Change the text below to your brand name -->
+          <div class="shrink-0">
+            <a href="#" class="text-2xl font-bold">
+              CoWorking
+            </a>
+          </div>
+
+          <!-- DESKTOP NAVIGATION MENU -->
+          <!-- Only visible on large screens (lg:flex) -->
+          <!-- These are the main navigation links. Change the text inside the <a> tags to match your sections -->
+          <div class="hidden lg:flex space-x-8 font-gilroy-medium">
+            <a href="#home" class="hover:text-indigo-600">Home</a>
+            <a href="#locations" class="hover:text-indigo-600"
+              >Locations</a
+            >
+           
+            <a href="#features" class="hover:text-indigo-600"
+              >Features</a
+            >
+            <a href="#faq" class="hover:text-indigo-600"
+              >FAQ</a
+            >
+            <a href="#newsletter" class="hover:text-indigo-600"
+              >Newsletter</a
+            >
+          </div>
+
+          <!-- DESKTOP CTA BUTTON -->
+          <!-- Only visible on large screens -->
+          <!-- Change the button text and URL below -->
+          <div class="hidden lg:flex space-x-4">
+            <a
+              href="https://templatehearth.vercel.app/"
+              target="_blank"
+              class="bg-primary w-full font-gilroy-bold hover:bg-primary/70 cursor-pointer rounded-lg px-6 py-3 text-white md:col-span-2 lg:col-span-1"
+            >
+              Get Started Free
+            </a>
+          </div>
+
+          <!-- MOBILE HAMBURGER MENU BUTTON -->
+          <!-- Only visible on mobile/tablet (lg:hidden) -->
+          <div class="lg:hidden">
+            <button
+              id="mobile-menu-button"
+              class="focus:outline-none"
+            >
+              <!-- Hamburger icon (three horizontal lines) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- MOBILE DROPDOWN MENU -->
+        <!-- Hidden by default, shows when hamburger is clicked -->
+        <!-- These are the mobile navigation links. Change the text inside the <a> tags to match your sections -->
+        <div
+          id="mobile-menu"
+          class="max-h-0 overflow-hidden transition-all duration-500 bg-white/70 backdrop-blur lg:hidden divide-y divide-primary"
+        >
+          <!-- Mobile navigation links -->
+          <a
+            href="#home"
+            class="block hover:bg-primary hover:text-white py-2 container transition"
+            >Home</a
+          >
+          <a
+            href="#locations"
+            class="block hover:bg-primary hover:text-white py-2 container transition"
+            >Locations</a
+          >
+          
+          <a
+            href="#features"
+            class="block hover:bg-primary hover:text-white py-2 container transition"
+            >Features</a
+          >
+          <a
+            href="#faq"
+            class="block hover:bg-primary hover:text-white py-2 container transition"
+            >FAQ</a
+          >
+          <a
+            href="#newsletter"
+            class="block hover:bg-primary hover:text-white py-2 container transition"
+            >Newsletter</a
+          >
+         
+          <!-- Mobile CTA button -->
+          <!-- Change the button text and URL below -->
+          <div class="container">
+            <a
+              href="https://templatehearth.vercel.app/"
+              target="_blank"
+              class="bg-primary w-full font-gilroy-bold hover:bg-primary/70 cursor-pointer rounded-lg px-6 py-3 text-white md:col-span-2 lg:col-span-1"
+              >Get Started Free</a
+            >
+          </div>
+        </div>
+      </nav>
+      <!-- HERO SECTION -->
+      <!-- This is the main banner at the top of the page -->
+      <header
+        id="home"
+        style="background-image: url(./src/assets/hero.png)"
+        class="relative h-screen bg-cover bg-center bg-no-repeat"
       >
-        <div class="lg:w-2/3">
-          <p class="font-gilroy-bold text-success text-center uppercase" data-aos="fade-up">
-            Shared space in your town
-          </p>
-          <h1
-            class="font-gilroy-bold mx-auto mb-4 text-6xl leading-[1.08] font-medium text-white!"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            Rent desk space in a shared office environment
-          </h1>
-          <form
-            class="grid grid-cols-1 gap-4 rounded-lg bg-white p-2 md:grid-cols-2 lg:grid-cols-3 lg:p-6"
-
-          >
-            <div 
-              class="w-full rounded-lg border border-gray-300 p-3" 
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <select
-                name="location"
-                id="location"
-                class="w-full cursor-pointer"
-                required
-              >
-                <option value="">Select Location</option>
-                <option value="new-york">New York</option>
-                <option value="san-francisco">San Francisco</option>
-                <option value="chicago">Chicago</option>
-              </select>
-            </div>
-
-            <input
-              type="date"
-              class="rounded-lg border border-gray-300 p-3"
-              name="date"
-              id="dateInput"
-              required
-              data-aos="fade-up"
-              data-aos-delay="400"
-            />
-
-            <div data-aos="fade-up" data-aos-delay="500">
-              <button
-                type="submit"
-                class="bg-primary w-full font-gilroy-bold hover:bg-primary/70 cursor-pointer rounded-lg px-6 py-3 text-white md:col-span-2 lg:col-span-1"
-                
-              >
-                Search Place
-              </button>
-            </div>
-          </form>
-
-          <label
-            for="virtual-tour"
-            class="mt-5 flex cursor-pointer items-center justify-center gap-1 text-center text-white"
-            data-aos="fade-in"
-            data-aos-delay="600"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 640"
-              class="w-8 fill-white"
-            >
-              <path
-                d="M320 112C434.9 112 528 205.1 528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM276.5 211.5C269.1 207 259.8 206.8 252.2 211C244.6 215.2 240 223.3 240 232L240 408C240 416.7 244.7 424.7 252.3 428.9C259.9 433.1 269.1 433 276.6 428.4L420.6 340.4C427.7 336 432.1 328.3 432.1 319.9C432.1 311.5 427.7 303.8 420.6 299.4L276.6 211.4zM362 320L288 365.2L288 274.8L362 320z"
-              />
-            </svg>
-            <p class="text-lg font-semibold tracking-wide">
-              Take virtual tour of our spaces
+        <div
+          class="container mx-auto flex h-full flex-col items-center justify-center text-center"
+        >
+          <div class="lg:w-2/3">
+            <!-- Hero subtitle - Change this text -->
+            <p class="font-gilroy-bold text-success text-center uppercase" data-aos="fade-up">
+              Shared space in your town
             </p>
-          </label>
-          <input
-            type="checkbox"
-            class="hidden"
-            name="virtual-tour"
-            id="virtual-tour"
-          />
-          <div id="video-modal" class="relative">
+            <!-- Main hero heading - Change this text -->
+            <h1
+              class="font-gilroy-bold mx-auto mb-4 text-6xl leading-[1.08] font-medium text-white!"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              Rent desk space in a shared office environment
+            </h1>
+            <!-- Search form for booking -->
+            <form
+              class="grid grid-cols-1 gap-4 rounded-lg bg-white p-2 md:grid-cols-2 lg:grid-cols-3 lg:p-6"
+
+            >
+              <div 
+                class="w-full rounded-lg border border-gray-300 p-3" 
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <!-- Location dropdown - Add your locations here -->
+                <select
+                  name="location"
+                  id="location"
+                  class="w-full cursor-pointer"
+                  required
+                >
+                  <option value="">Select Location</option>
+                  <option value="new-york">New York</option>
+                  <option value="san-francisco">San Francisco</option>
+                  <option value="chicago">Chicago</option>
+                </select>
+              </div>
+
+              <input
+                type="date"
+                class="rounded-lg border border-gray-300 p-3"
+                name="date"
+                id="dateInput"
+                required
+                data-aos="fade-up"
+                data-aos-delay="400"
+              />
+
+              <div data-aos="fade-up" data-aos-delay="500">
+                <!-- Search button text - Change this -->
+                <button
+                  type="submit"
+                  class="bg-primary w-full font-gilroy-bold hover:bg-primary/70 cursor-pointer rounded-lg px-6 py-3 text-white md:col-span-2 lg:col-span-1"
+                  
+                >
+                  Search Place
+                </button>
+              </div>
+            </form>
+
+            <!-- Virtual tour section -->
+            <!-- Change the text below for the virtual tour label -->
             <label
               for="virtual-tour"
-              class="absolute top-4 right-4 flex aspect-square w-10 cursor-pointer items-center justify-center rounded-full border border-white"
-              id="close-modal"
+              class="mt-5 flex cursor-pointer items-center justify-center gap-1 text-center text-white"
+              data-aos="fade-in"
+              data-aos-delay="600"
             >
-              <i class="fa fa-times text-white"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                class="w-8 fill-white"
+              >
+                <path
+                  d="M320 112C434.9 112 528 205.1 528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM276.5 211.5C269.1 207 259.8 206.8 252.2 211C244.6 215.2 240 223.3 240 232L240 408C240 416.7 244.7 424.7 252.3 428.9C259.9 433.1 269.1 433 276.6 428.4L420.6 340.4C427.7 336 432.1 328.3 432.1 319.9C432.1 311.5 427.7 303.8 420.6 299.4L276.6 211.4zM362 320L288 365.2L288 274.8L362 320z"
+                />
+              </svg>
+              <p class="text-lg font-semibold tracking-wide">
+                Take virtual tour of our spaces
+              </p>
             </label>
-            <!-- Video -->
-            <iframe
-              class="aspect-9/16 h-[90%] w-fit rounded-lg"
-              id="iframe"
-              title="YouTube video player"
-              frameborder="0"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share;
-              "
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-      </div>
-      <div
-        class="absolute right-0 bottom-5 left-0 mx-auto flex w-full justify-center text-5xl text-white"
-        
-      >
-        <i class="fas fa-chevron-circle-down cursor-pointer" id="scroll-down"></i>
-      </div>
-    </header>
-
-    <section class="border-b border-black/20">
-      <div class="container">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <aside class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
-            <h2
-              class="font-gilroy-bold counter"
-              data-target="6"
-              data-duration="1000"
-            >
-              0
-            </h2>
-            <p class="mx-auto w-7/12 text-center">
-              Offices are available on different countries
-            </p>
-          </aside>
-
-          <aside class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
-            <h2
-              class="font-gilroy-bold counter"
-              data-target="238"
-              data-duration="1000"
-
-            >
-              0
-            </h2>
-            <p class="mx-auto w-8/12 text-center">
-              Seats are available right now with dedicated support
-            </p>
-          </aside>
-
-          <aside class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="600">
-            <h2
-              class="font-gilroy-bold counter"
-              data-target="1395"
-              data-duration="1000"
-            >
-              0
-            </h2>
-            <p class="mx-auto w-8/12 text-center">
-              People are using our co-work spaces right now
-            </p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <h2 class="font-gilroy-bold text-center" data-aos="fade-up">Popular locations</h2>
-      <p class="mx-auto text-center lg:w-1/3" data-aos="fade-up">
-        With lots of unique blocks, you can easily build a page easily without
-        any coding.
-      </p>
-
-      <div class="mt-12 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
-        <a href="#" class="group flex w-full flex-col" data-aos="fade-up" data-aos-delay="200">
-          <img
-            src="./src/assets/locations/Img-1.jpg"
-            alt="location"
-            class="h-full w-full rounded-lg object-cover transition-shadow group-hover:shadow-2xl"
-          />
-          <h6 class="mt-8 text-center font-bold">Beauview</h6>
-          <p class="text-center">37 seats</p>
-        </a>
-
-        <a href="#" class="group flex w-full flex-col" data-aos="fade-up" data-aos-delay="400">
-          <img
-            src="./src/assets/locations/Img-2.jpg"
-            alt="location"
-            class="h-full w-full rounded-lg object-cover transition-shadow group-hover:shadow-2xl"
-          />
-          <h6 class="mt-4 lg:mt-8 text-center font-bold">Haleyborough</h6>
-          <p class="text-center">12 seats</p>
-        </a>
-
-        <a href="#" class="group flex w-full flex-col" data-aos="fade-up" data-aos-delay="600">
-          <img
-            src="./src/assets/locations/Img-3.jpg"
-            alt="location"
-            class="h-full w-full rounded-lg object-cover transition-shadow group-hover:shadow-2xl"
-          />
-          <h6 class="mt-8 text-center font-bold">Jeromyshire</h6>
-          <p class="text-center">28 seats</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="relative">
-      <div class="absolute top-0 left-0 -z-10 h-1/2 w-full bg-[#F4F7FA]"></div>
-      <div class="container grid grid-cols-1 lg:grid-cols-2 lg:gap-16">
-        <aside>
-          <div class="lg:w-7/12">
-            <h3 class="font-gilroy-bold" data-aos="fade-right">Work around very talented people.</h3>
-            <p class="mt-5" data-aos="fade-right">
-              With lots of unique blocks, you can easily build a page easily
-              without any coding.
-            </p>
-          </div>
-          <img
-            src="./src/assets/talented-people/talented-1.png"
-            alt="talented people"
-            class="mt-12 rounded-lg"
-            data-aos="fade-right"
-          />
-        </aside>
-
-        <aside>
-          <img
-            src="./src/assets/talented-people/talented-2.png"
-            alt="talented people"
-            class="mt-8 rounded-lg"
-            data-aos="fade-left"
-          />
-        </aside>
-      </div>
-    </section>
-
-    <section
-      class="container grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-    >
-      <article class="flex items-start gap-6" data-aos="fade-in">
-        <img
-          class="w-11"
-          src="./src/assets/icons/desk-drawer.svg"
-          alt="desk-drawer"
-        />
-        <aside>
-          <h6 class="font-gilroy-bold">Dedicated Desk</h6>
-          <p class="mt-4">
-            Enjoy your own personal workspace with a dedicated desk, providing
-            privacy and focus in our shared office environment.
-          </p>
-        </aside>
-      </article>
-      <article class="flex items-start gap-6" data-aos="fade-in" data-aos-delay="100">
-        <img class="w-11" src="./src/assets/icons/wifi.svg" alt="wifi" />
-        <aside>
-          <h6 class="font-gilroy-bold">High Speed Internet</h6>
-          <p class="mt-4">
-            Stay connected with our lightning-fast internet, ensuring seamless
-            productivity and reliable access to online resources.
-          </p>
-        </aside>
-      </article>
-      <article class="flex items-start gap-6" data-aos="fade-in" data-aos-delay="200">
-        <img class="w-11" src="./src/assets/icons/mug.svg" alt="mug" />
-        <aside>
-          <h6 class="font-gilroy-bold">Unlimited Coffee</h6>
-          <p class="mt-4">
-            Fuel your workday with unlimited access to premium coffee, keeping
-            you always energized and focused throughout the entire day.
-          </p>
-        </aside>
-      </article>
-    </section>
-
-    <section class="bg-[#161C2D] text-white">
-      <div
-        class="container grid grid-cols-1 items-center gap-12 lg:gap-24 lg:grid-cols-2"
-      >
-        <aside>
-          <h2 class="font-gilroy-bold text-4xl text-white!" data-aos="fade-right">
-            We are always here for your backup.
-          </h2>
-          <p class="mt-5 w-5/6 text-xl opacity-65" data-aos="fade-right">
-            We share common trends and strategies for creating & improving your
-            rental income.
-          </p>
-
-          <div class="mt-14 space-y-10">
-            <div class="flex gap-5" data-aos="fade-right">
-              <div
-                class="bg-success flex aspect-square h-8 w-8 items-center justify-center rounded-full text-2xl"
+            <input
+              type="checkbox"
+              class="hidden"
+              name="virtual-tour"
+              id="virtual-tour"
+            />
+            <!-- Video modal for virtual tour -->
+            <!-- Add your YouTube video URL in the iframe src -->
+            <div id="video-modal" class="relative">
+              <label
+                for="virtual-tour"
+                class="absolute top-4 right-4 flex aspect-square w-10 cursor-pointer items-center justify-center rounded-full border border-white"
+                id="close-modal"
               >
-                &check;
-              </div>
-
-              <aside>
-                <h6 class="font-bold text-white!">Noise Free Locations</h6>
-                <p class="mt-3 w-5/6">
-                  With lots of unique blocks, you can easily build a page
-                  without coding.
-                </p>
-              </aside>
-            </div>
-
-            <div class="flex gap-5" data-aos="fade-right">
-              <div
-                class="bg-success flex aspect-square h-8 w-8 items-center justify-center rounded-full text-2xl"
-              >
-                &check;
-              </div>
-
-              <aside>
-                <h6 class="font-bold text-white!">24/7 Hour Support</h6>
-                <p class="mt-3 w-5/6">
-                  With lots of unique blocks, you can easily build a page
-                  without coding.
-                </p>
-              </aside>
+                <i class="fa fa-times text-white"></i>
+              </label>
+              <!-- Video -->
+              <iframe
+                class="aspect-9/16 h-[90%] w-fit rounded-lg"
+                id="iframe"
+                title="YouTube video player"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
-        </aside>
-
-        <aside
-          class="border-success divide-y overflow-hidden rounded-lg border-t-8 bg-white p-5"
+        </div>
+        <!-- Scroll down indicator -->
+        <div
+          class="absolute right-0 bottom-5 left-0 mx-auto flex w-full justify-center text-5xl text-white"
+          
         >
-          <!-- Item -->
-          <div class="accordion-item text-black" data-aos="fade-left">
-            <button
-              class="accordion-header text-left flex w-full cursor-pointer items-center justify-between py-4 font-semibold"
-            >
-              What services do you offer?
-              <span class="text-xl transition-transform duration-300">+</span>
-            </button>
-            <div
-              class="accordion-content max-h-0 overflow-hidden px-5 transition-all duration-300"
-            >
-              <p class="py-3 text-gray-600">
-                We specialize in modern web development using technologies like
-                React and Next.js. From landing pages to full-scale web
-                applications, we build fast, scalable, and user-friendly
-                solutions tailored to your business needs.
-              </p>
-            </div>
-          </div>
+          <i class="fas fa-chevron-circle-down cursor-pointer" id="scroll-down"></i>
+        </div>
+      </header>
 
-          <!-- Item -->
-          <div class="accordion-item text-black" data-aos="fade-left">
-            <button
-              class="accordion-header text-left flex w-full cursor-pointer items-center justify-between py-4 font-semibold"
-            >
-              How much does a project typically cost?
-              <span class="text-xl transition-transform duration-300">+</span>
-            </button>
-            <div
-              class="accordion-content max-h-0 overflow-hidden px-5 transition-all duration-300"
-            >
-              <p class="py-3 text-gray-600">
-                Pricing depends on the scope, features, and complexity of your
-                project. After understanding your requirements, we provide a
-                clear and transparent quote with no hidden costs.
+      <!-- STATISTICS SECTION -->
+      <!-- Shows key numbers/statistics -->
+      <section id="stats" class="border-b border-black/20">
+        <div class="container">
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <aside class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+              <!-- Change the target number and description -->
+              <h2
+                class="font-gilroy-bold counter"
+                data-target="6"
+                data-duration="1000"
+              >
+                0
+              </h2>
+              <p class="mx-auto w-7/12 text-center">
+                Offices are available on different countries
               </p>
-            </div>
-          </div>
+            </aside>
 
-          <!-- Item -->
-          <div class="accordion-item text-black" data-aos="fade-left">
-            <button
-              class="accordion-header text-left flex w-full cursor-pointer items-center justify-between py-4 font-semibold"
-            >
-              How can I get in touch with you?
-              <span class="text-xl transition-transform duration-300">+</span>
-            </button>
-            <div
-              class="accordion-content max-h-0 overflow-hidden px-5 transition-all duration-300"
-            >
-              <p class="py-3 text-gray-600">
-                You can reach out to us through our contact form or send us an
-                email anytime. We usually respond within a few hours to discuss
-                your project and next steps.
+            <aside class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+              <!-- Change the target number and description -->
+              <h2
+                class="font-gilroy-bold counter"
+                data-target="238"
+                data-duration="1000"
+
+              >
+                0
+              </h2>
+              <p class="mx-auto w-8/12 text-center">
+                Seats are available right now with dedicated support
               </p>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
+            </aside>
 
-    <section class="container">
-      <div class="mx-auto md:w-2/3 lg:w-5/12 text-center">
-        <h2 class="font-gilroy-bold" data-aos="fade-up">Get latest updates</h2>
-        <p data-aos="fade-up">
-          With lots of unique blocks, you can easily build a page without
-          coding. Build your next landing page.
+            <aside class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="600">
+              <!-- Change the target number and description -->
+              <h2
+                class="font-gilroy-bold counter"
+                data-target="1395"
+                data-duration="1000"
+              >
+                0
+              </h2>
+              <p class="mx-auto w-8/12 text-center">
+                People are using our co-work spaces right now
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- POPULAR LOCATIONS SECTION -->
+      <!-- Shows available coworking locations -->
+      <section id="locations" class="container">
+        <!-- Section heading - Change this text -->
+        <h2 class="font-gilroy-bold text-center" data-aos="fade-up">Popular locations</h2>
+        <!-- Section description - Change this text -->
+        <p class="mx-auto text-center lg:w-1/3" data-aos="fade-up">
+          With lots of unique blocks, you can easily build a page easily without
+          any coding.
         </p>
-        <form action="">
-          <input
-            type="email"
-            required
-            name="email"
-            id="email"
-            placeholder="Enter your email"
-            class="mt-14 w-full rounded-lg border border-[#E7E9ED] p-4 placeholder:text-[#161C2D]"
-            data-aos="fade-up"
+
+        <div class="mt-12 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Location 1 - Change image, name, and seat count -->
+          <a href="#" class="group flex w-full flex-col" data-aos="fade-up" data-aos-delay="200">
+            <img
+              src="./src/assets/locations/Img-1.jpg"
+              alt="location"
+              class="h-full w-full rounded-lg object-cover transition-shadow group-hover:shadow-2xl"
+            />
+            <h6 class="mt-8 text-center font-bold">Beauview</h6>
+            <p class="text-center">37 seats</p>
+          </a>
+
+          <!-- Location 2 - Change image, name, and seat count -->
+          <a href="#" class="group flex w-full flex-col" data-aos="fade-up" data-aos-delay="400">
+            <img
+              src="./src/assets/locations/Img-2.jpg"
+              alt="location"
+              class="h-full w-full rounded-lg object-cover transition-shadow group-hover:shadow-2xl"
+            />
+            <h6 class="mt-4 lg:mt-8 text-center font-bold">Haleyborough</h6>
+            <p class="text-center">12 seats</p>
+          </a>
+
+          <!-- Location 3 - Change image, name, and seat count -->
+          <a href="#" class="group flex w-full flex-col" data-aos="fade-up" data-aos-delay="600">
+            <img
+              src="./src/assets/locations/Img-3.jpg"
+              alt="location"
+              class="h-full w-full rounded-lg object-cover transition-shadow group-hover:shadow-2xl"
+            />
+            <h6 class="mt-8 text-center font-bold">Jeromyshire</h6>
+            <p class="text-center">28 seats</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- TALENTED PEOPLE SECTION -->
+      <!-- Section about working with talented people -->
+      <section id="talented" class="relative">
+        <div class="absolute top-0 left-0 -z-10 h-1/2 w-full bg-[#F4F7FA]"></div>
+        <div class="container grid grid-cols-1 lg:grid-cols-2 lg:gap-16">
+          <aside>
+            <div class="lg:w-7/12">
+              <!-- Section heading - Change this text -->
+              <h3 class="font-gilroy-bold" data-aos="fade-right">Work around very talented people.</h3>
+              <!-- Section description - Change this text -->
+              <p class="mt-5" data-aos="fade-right">
+                With lots of unique blocks, you can easily build a page easily
+                without any coding.
+              </p>
+            </div>
+            <!-- Change the image source -->
+            <img
+              src="./src/assets/talented-people/talented-1.png"
+              alt="talented people"
+              class="mt-12 rounded-lg"
+              data-aos="fade-right"
+            />
+          </aside>
+
+          <aside>
+            <!-- Change the image source -->
+            <img
+              src="./src/assets/talented-people/talented-2.png"
+              alt="talented people"
+              class="mt-8 rounded-lg"
+              data-aos="fade-left"
+            />
+          </aside>
+        </div>
+      </section>
+
+      <!-- FEATURES SECTION -->
+      <!-- Shows the key features/services offered -->
+      <section
+        id="features"
+        class="container grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+      >
+        <!-- Feature 1 - Change icon, title, and description -->
+        <article class="flex items-start gap-6" data-aos="fade-in">
+          <img
+            class="w-11"
+            src="./src/assets/icons/desk-drawer.svg"
+            alt="desk-drawer"
           />
-          <button
-            type="submit"
-            class="bg-primary font-gilroy-bold hover:bg-primary/70 mt-6 w-full cursor-pointer rounded-lg px-6 py-3 tracking-wide text-white uppercase"
-            data-aos="fade-up"
-          >
-            subscribe
-          </button>
-        </form>
-      </div>
-    </section>
+          <aside>
+            <h6 class="font-gilroy-bold">Dedicated Desk</h6>
+            <p class="mt-4">
+              Enjoy your own personal workspace with a dedicated desk, providing
+              privacy and focus in our shared office environment.
+            </p>
+          </aside>
+        </article>
+        <!-- Feature 2 - Change icon, title, and description -->
+        <article class="flex items-start gap-6" data-aos="fade-in" data-aos-delay="100">
+          <img class="w-11" src="./src/assets/icons/wifi.svg" alt="wifi" />
+          <aside>
+            <h6 class="font-gilroy-bold">High Speed Internet</h6>
+            <p class="mt-4">
+              Stay connected with our lightning-fast internet, ensuring seamless
+              productivity and reliable access to online resources.
+            </p>
+          </aside>
+        </article>
+        <!-- Feature 3 - Change icon, title, and description -->
+        <article class="flex items-start gap-6" data-aos="fade-in" data-aos-delay="200">
+          <img class="w-11" src="./src/assets/icons/mug.svg" alt="mug" />
+          <aside>
+            <h6 class="font-gilroy-bold">Unlimited Coffee</h6>
+            <p class="mt-4">
+              Fuel your workday with unlimited access to premium coffee, keeping
+              you always energized and focused throughout the entire day.
+            </p>
+          </aside>
+        </article>
+      </section>
 
-    <footer class="border-y border-black/25">
-      <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-        <aside>
-          <h5 class="font-bold">Company</h5>
-          <ul class="mt-4 space-y-2 text-gray-600">
-            <li><a href="#" class="hover:text-black transition">About Us</a></li>
-            <li><a href="#" class="hover:text-black transition">Careers</a></li>
-            <li><a href="#" class="hover:text-black transition">Blog</a></li>
-            <li><a href="#" class="hover:text-black transition">Contact</a></li>
-          </ul>
-        </aside>
-
-        <aside>
-          <h5 class="font-bold">Product</h5>
-          <ul class="mt-4 space-y-2 text-gray-600">
-            <li><a href="#" class="hover:text-black transition">Features</a></li>
-            <li><a href="#" class="hover:text-black transition">Pricing</a></li>
-            <li><a href="#" class="hover:text-black transition">News</a></li>
-            <li><a href="#" class="hover:text-black transition">Help desk</a></li>
-            <li><a href="#" class="hover:text-black transition">Support</a></li>
-          </ul>
-        </aside>
-
-        <aside>
-          <h5 class="font-bold">Services</h5>
-          <ul class="mt-4 space-y-2 text-gray-600">
-            <li><a href="#" class="hover:text-black transition">Digital Marketing</a></li>
-            <li><a href="#" class="hover:text-black transition">Content Writing</a></li>
-            <li><a href="#" class="hover:text-black transition">SEO for Business</a></li>
-            <li><a href="#" class="hover:text-black transition">UI Design</a></li>
-          </ul>
-        </aside>
-
-        <aside>
-          <h5 class="font-bold">Legal</h5>
-          <ul class="mt-4 space-y-2 text-gray-600">
-            <li><a href="#" class="hover:text-black transition">Privacy Policy</a></li>
-            <li><a href="#" class="hover:text-black transition">Terms of Service</a></li>
-            <li><a href="#" class="hover:text-black transition">Cookie Policy</a></li>
-          </ul>
-        </aside>
-
-        <aside>
-          <h5 class="font-bold">Contact us</h5>
-          <ul class="mt-4 space-y-2 text-gray-600">
-            <li><a href="#" class="hover:text-black transition">support@brainwave.io</a></li>
-            <li><a href="#" class="hover:text-black transition">+133-394-3439-1435</a></li>
-          </ul>
-        </aside>
-      </div>
-    </footer>
-
-    <div
-      class="container flex flex-col items-center justify-between gap-5 py-6 md:flex-row"
-    >
-      <div class="py-4">
-        &copy; <span id="year"></span> CoWorking, Designed by
-        <a 
-          href="https://www.figma.com/@sejal_ui_ux"
-          target="_blank"
-          rel="no-referrer"
-          class="text-blue-700"
-          >Seju_ui_ux</a
-        >, Developed By
-        <a
-          href="https://templatehearth.vercel.app/"
-          target="_blank"
-          rel="no-referrer"
-          class="text-blue-700"
-          >Template Hearth</a
+      <!-- FAQ SECTION -->
+      <!-- Frequently Asked Questions with expandable answers -->
+      <section id="faq" class="bg-[#161C2D] text-white">
+        <div
+          class="container grid grid-cols-1 items-center gap-12 lg:gap-24 lg:grid-cols-2"
         >
-      </div>
-      <div class="flex gap-5 text-xl text-gray-600">
-        <a href="https://www.facebook.com/templatehearth" target="_blank" rel="no-referrer"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com/templatehearth" target="_blank" rel="no-referrer"> 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 50 50"
-            fill="currentColor"
+          <aside>
+            <!-- Section heading - Change this text -->
+            <h2 class="font-gilroy-bold text-4xl text-white!" data-aos="fade-right">
+              We are always here for your backup.
+            </h2>
+            <!-- Section description - Change this text -->
+            <p class="mt-5 w-5/6 text-xl opacity-65" data-aos="fade-right">
+              We share common trends and strategies for creating & improving your
+              rental income.
+            </p>
+
+            <div class="mt-14 space-y-10">
+              <!-- Feature point 1 - Change text -->
+              <div class="flex gap-5" data-aos="fade-right">
+                <div
+                  class="bg-success flex aspect-square h-8 w-8 items-center justify-center rounded-full text-2xl"
+                >
+                  &check;
+                </div>
+
+                <aside>
+                  <h6 class="font-bold text-white!">Noise Free Locations</h6>
+                  <p class="mt-3 w-5/6">
+                    With lots of unique blocks, you can easily build a page
+                    without coding.
+                  </p>
+                </aside>
+              </div>
+
+              <!-- Feature point 2 - Change text -->
+              <div class="flex gap-5" data-aos="fade-right">
+                <div
+                  class="bg-success flex aspect-square h-8 w-8 items-center justify-center rounded-full text-2xl"
+                >
+                  &check;
+                </div>
+
+                <aside>
+                  <h6 class="font-bold text-white!">24/7 Hour Support</h6>
+                  <p class="mt-3 w-5/6">
+                    With lots of unique blocks, you can easily build a page
+                    without coding.
+                  </p>
+                </aside>
+              </div>
+            </div>
+          </aside>
+
+          <aside
+            class="border-success divide-y overflow-hidden rounded-lg border-t-8 bg-white p-5"
           >
-            <path
-              d="M 6.9199219 6 L 21.136719 26.726562 L 6.2285156 44 L 9.40625 44 L 22.544922 28.777344 L 32.986328 44 L 43 44 L 28.123047 22.3125 L 42.203125 6 L 39.027344 6 L 26.716797 20.261719 L 16.933594 6 L 6.9199219 6 z"
-            ></path>
-          </svg>
-        </a>
-        <a href="https://instagram.com/templatehearth" target="_blank" rel="no-referrer"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/company/templatehearth" target="_blank" rel="no-referrer"><i class="fab fa-linkedin-in"></i></a>
+            <!-- FAQ Item 1 - Change question and answer -->
+            <div class="accordion-item text-black" data-aos="fade-left">
+              <button
+                class="accordion-header text-left flex w-full cursor-pointer items-center justify-between py-4 font-semibold"
+              >
+                What services do you offer?
+                <span class="text-xl transition-transform duration-300">+</span>
+              </button>
+              <div
+                class="accordion-content max-h-0 overflow-hidden px-5 transition-all duration-300"
+              >
+                <p class="py-3 text-gray-600">
+                  We specialize in modern web development using technologies like
+                  React and Next.js. From landing pages to full-scale web
+                  applications, we build fast, scalable, and user-friendly
+                  solutions tailored to your business needs.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 - Change question and answer -->
+            <div class="accordion-item text-black" data-aos="fade-left">
+              <button
+                class="accordion-header text-left flex w-full cursor-pointer items-center justify-between py-4 font-semibold"
+              >
+                How much does a project typically cost?
+                <span class="text-xl transition-transform duration-300">+</span>
+              </button>
+              <div
+                class="accordion-content max-h-0 overflow-hidden px-5 transition-all duration-300"
+              >
+                <p class="py-3 text-gray-600">
+                  Pricing depends on the scope, features, and complexity of your
+                  project. After understanding your requirements, we provide a
+                  clear and transparent quote with no hidden costs.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 - Change question and answer -->
+            <div class="accordion-item text-black" data-aos="fade-left">
+              <button
+                class="accordion-header text-left flex w-full cursor-pointer items-center justify-between py-4 font-semibold"
+              >
+                How can I get in touch with you?
+                <span class="text-xl transition-transform duration-300">+</span>
+              </button>
+              <div
+                class="accordion-content max-h-0 overflow-hidden px-5 transition-all duration-300"
+              >
+                <p class="py-3 text-gray-600">
+                  You can reach out to us through our contact form or send us an
+                  email anytime. We usually respond within a few hours to discuss
+                  your project and next steps.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER SECTION -->
+      <!-- Email subscription form -->
+      <section id="newsletter" class="container">
+        <div class="mx-auto md:w-2/3 lg:w-5/12 text-center">
+          <!-- Section heading - Change this text -->
+          <h2 class="font-gilroy-bold" data-aos="fade-up">Get latest updates</h2>
+          <!-- Section description - Change this text -->
+          <p data-aos="fade-up">
+            With lots of unique blocks, you can easily build a page without
+            coding. Build your next landing page.
+          </p>
+          <form action="">
+            <!-- Email input placeholder - Change this -->
+            <input
+              type="email"
+              required
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+              class="mt-14 w-full rounded-lg border border-[#E7E9ED] p-4 placeholder:text-[#161C2D]"
+              data-aos="fade-up"
+            />
+            <!-- Subscribe button text - Change this -->
+            <button
+              type="submit"
+              class="bg-primary font-gilroy-bold hover:bg-primary/70 mt-6 w-full cursor-pointer rounded-lg px-6 py-3 tracking-wide text-white uppercase"
+              data-aos="fade-up"
+            >
+              subscribe
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <!-- Site footer with links and social media -->
+      <footer class="border-y border-black/25">
+        <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          <!-- Company links - Change links and text -->
+          <aside>
+            <h5 class="font-bold">Company</h5>
+            <ul class="mt-4 space-y-2 text-gray-600">
+              <li><a href="#" class="hover:text-black transition">About Us</a></li>
+              <li><a href="#" class="hover:text-black transition">Careers</a></li>
+              <li><a href="#" class="hover:text-black transition">Blog</a></li>
+              <li><a href="#" class="hover:text-black transition">Contact</a></li>
+            </ul>
+          </aside>
+
+          <!-- Product links - Change links and text -->
+          <aside>
+            <h5 class="font-bold">Product</h5>
+            <ul class="mt-4 space-y-2 text-gray-600">
+              <li><a href="#" class="hover:text-black transition">Features</a></li>
+              <li><a href="#" class="hover:text-black transition">Pricing</a></li>
+              <li><a href="#" class="hover:text-black transition">News</a></li>
+              <li><a href="#" class="hover:text-black transition">Help desk</a></li>
+              <li><a href="#" class="hover:text-black transition">Support</a></li>
+            </ul>
+          </aside>
+
+          <!-- Services links - Change links and text -->
+          <aside>
+            <h5 class="font-bold">Services</h5>
+            <ul class="mt-4 space-y-2 text-gray-600">
+              <li><a href="#" class="hover:text-black transition">Digital Marketing</a></li>
+              <li><a href="#" class="hover:text-black transition">Content Writing</a></li>
+              <li><a href="#" class="hover:text-black transition">SEO for Business</a></li>
+              <li><a href="#" class="hover:text-black transition">UI Design</a></li>
+            </ul>
+          </aside>
+
+          <!-- Legal links - Change links and text -->
+          <aside>
+            <h5 class="font-bold">Legal</h5>
+            <ul class="mt-4 space-y-2 text-gray-600">
+              <li><a href="#" class="hover:text-black transition">Privacy Policy</a></li>
+              <li><a href="#" class="hover:text-black transition">Terms of Service</a></li>
+              <li><a href="#" class="hover:text-black transition">Cookie Policy</a></li>
+            </ul>
+          </aside>
+
+          <!-- Contact info - Change email and phone -->
+          <aside>
+            <h5 class="font-bold">Contact us</h5>
+            <ul class="mt-4 space-y-2 text-gray-600">
+              <li><a href="#" class="hover:text-black transition">support@brainwave.io</a></li>
+              <li><a href="#" class="hover:text-black transition">+133-394-3439-1435</a></li>
+            </ul>
+          </aside>
+        </div>
+      </footer>
+
+      <!-- COPYRIGHT AND SOCIAL LINKS -->
+      <div
+        class="container flex flex-col items-center justify-between gap-5 py-6 md:flex-row"
+      >
+        <div class="py-4">
+          <!-- Copyright text - Change company name and links -->
+          &copy; <span id="year"></span> CoWorking, Designed by
+          <a 
+            href="https://www.figma.com/@sejal_ui_ux"
+            target="_blank"
+            rel="no-referrer"
+            class="text-blue-700"
+            >Seju_ui_ux</a
+          >, Developed By
+          <a
+            href="https://templatehearth.vercel.app/"
+            target="_blank"
+            rel="no-referrer"
+            class="text-blue-700"
+            >Template Hearth</a
+          >
+        </div>
+        <!-- Social media links - Change URLs -->
+        <div class="flex gap-5 text-xl text-gray-600">
+          <a href="https://www.facebook.com/templatehearth" target="_blank" rel="no-referrer"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/templatehearth" target="_blank" rel="no-referrer"> 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 50 50"
+              fill="currentColor"
+            >
+              <path
+                d="M 6.9199219 6 L 21.136719 26.726562 L 6.2285156 44 L 9.40625 44 L 22.544922 28.777344 L 32.986328 44 L 43 44 L 28.123047 22.3125 L 42.203125 6 L 39.027344 6 L 26.716797 20.261719 L 16.933594 6 L 6.9199219 6 z"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://instagram.com/templatehearth" target="_blank" rel="no-referrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com/company/templatehearth" target="_blank" rel="no-referrer"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
     </div>
 
+    <!-- SCRIPTS -->
+    <!-- Animation library - Do not remove -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Main JavaScript file - Contains interactive functionality -->
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

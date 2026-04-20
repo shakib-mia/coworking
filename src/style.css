@@ -43,7 +43,7 @@
 }
 
 body {
-  @apply font-gilroy-regular text-[#161C2D]/70;
+  @apply font-gilroy-regular text-[#161C2D]/70 w-screen overflow-hidden;
 }
 
 ::-webkit-scrollbar {
